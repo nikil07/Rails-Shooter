@@ -20,7 +20,8 @@ public class MediaPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("loadFirstScene", 2f);
+        if(SceneManager.GetActiveScene().buildIndex==0)
+            Invoke("loadFirstScene", 2f);
     }
 
     // Update is called once per frame

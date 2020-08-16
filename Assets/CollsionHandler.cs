@@ -12,6 +12,7 @@ public class CollsionHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        print("collided" + other.name);
         SendMessage("disableControls");
         deathFX.SetActive(true);
         Invoke("reloadLevel",levelLoadDelay);

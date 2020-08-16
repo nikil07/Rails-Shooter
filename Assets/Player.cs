@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] float pitchFactor = -5f;
     [SerializeField] float throwPitchFactor =-5f;
+    [SerializeField] GameObject[] guns;
 
     [SerializeField] float yawFactor = -5f;
 
@@ -31,6 +32,24 @@ public class Player : MonoBehaviour
         {
             handleMovememt();
             handleRotation();
+            handleGuns();
+        }
+    }
+
+    private void handleGuns()
+    {
+        if (CrossPlatformInputManager.GetButton("Fire"))
+        {
+            foreach (GameObject gun in guns)
+            {
+                gun.SetActive(true);
+            }
+        }
+        else {
+            foreach (GameObject gun in guns)
+            {
+                gun.SetActive(false);
+            }
         }
     }
 
